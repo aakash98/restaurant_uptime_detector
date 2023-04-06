@@ -34,6 +34,10 @@ The Following Dependencies Are Required By Default For This Project To Run Smoot
 >>> `python3 manage.py migrate`
 >>
 >>> `python3 manage.py import_csv_data`
+>> 
+>>> `export LC_ALL=en_US.utf-8`
+>>
+>>> `export LANG=en_US.utf-8`
 >>
 If your project setup ran successfully, you can go ahead and open two terminals.
 

@@ -15,7 +15,7 @@ class TriggerReportService(object):
         else:
             reference_timestamp = RestaurantStatusData.objects.filter().last().timestamp
         consolidated_report = ConsolidatedReport.objects.create(reference_timestamp=reference_timestamp)
-        render_restaurant_reports(consolidated_report.pk)
+        render_restaurant_reports.delay(consolidated_report.pk)
         return {"success": True, "report_id": consolidated_report.pk if consolidated_report else None}
 
     @staticmethod

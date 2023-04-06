@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'restaurant_reports'
 ]
 
@@ -57,7 +58,7 @@ ROOT_URLCONF = 'restaurant_reports.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ["*"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
