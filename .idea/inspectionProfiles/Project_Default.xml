@@ -1,0 +1,65 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyCompatibilityInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ourVersions">
+        <value>
+          <list size="3">
+            <item index="0" class="java.lang.String" itemvalue="3.6" />
+            <item index="1" class="java.lang.String" itemvalue="3.8" />
+            <item index="2" class="java.lang.String" itemvalue="3.10" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="8">
+            <item index="0" class="java.lang.String" itemvalue="requests" />
+            <item index="1" class="java.lang.String" itemvalue="urllib3" />
+            <item index="2" class="java.lang.String" itemvalue="protobuf" />
+            <item index="3" class="java.lang.String" itemvalue="sentry-sdk" />
+            <item index="4" class="java.lang.String" itemvalue="sp-buylead-managment-client" />
+            <item index="5" class="java.lang.String" itemvalue="grpcio" />
+            <item index="6" class="java.lang.String" itemvalue="jaeger-client" />
+            <item index="7" class="java.lang.String" itemvalue="grpcio-tools" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPep8Inspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="E501" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPep8NamingInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="N812" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="sp_pricing.models.gsheet_key_mappings.GSheetKeyMappings.objects" />
+          <option value="sp_pricing.models.citystatistic.CityStatistic.objects" />
+          <option value="sp_pricing.models.variantstatistic.VariantStatistic.objects" />
+          <option value="sp_pricing.models.modelstatistic.ModelStatistic.objects" />
+          <option value="listing.components.approval.models.Approval.objects" />
+          <option value="sp_pricing.models.ruleengine.RuleEngine.objects" />
+          <option value="common.models.ruleengine.RuleEngine.*" />
+          <option value="sentry_sdk" />
+          <option value="datetime.strftime" />
+          <option value="datetime.strptime" />
+          <option value="sp_car_inventory_client.rpc.lib.channel_setup.sp_grpc_client" />
+          <option value="grpc" />
+          <option value="sp_car_inventory_client.rpc.lib.channel_setup.grpc_opentracing" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
