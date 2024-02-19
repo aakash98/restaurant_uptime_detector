@@ -1,13 +1,13 @@
-#Restaurant Report Service
+# Restaurant Report Service
 
-##What Does This Service Do?
+## What Does This Service Do?
 >The Restaurant Report Service Is Provided A Constant Stream Of Data Validating If A Restaurant Is Servicable Or Not.
 > 
 >We Also Have Timezone Information For Each Restaurant Store And The Operational Hours For Those Particular Stores In Their Timezone.
 > 
 >This Service Computes Abnormal Downtimes And Effective Uptimes As Recorded By The Status Streamer And Consolidates This Data Accross All Restaurant Stores
 
-##Dependencies Setup
+## Dependencies Setup
 The Following Dependencies Are Required By Default For This Project To Run Smoothly
 > MySQL `https://medium.com/macoclock/installing-mysql-5-7-using-homebrew-974cc2d42509`
 >> You Can Set Your Database Env Variables In restaurant_reports/settings:DATABASES
@@ -15,7 +15,7 @@ The Following Dependencies Are Required By Default For This Project To Run Smoot
 > Redis `https://redis.io/docs/getting-started/installation/install-redis-on-mac-os/`
 >> You Can Set Your Redis Cache Variables In restaurant_reports/settings:CACHES
 
-##Project Setup
+## Project Setup
 >Since This Project is written in Python-Django, you will need to have python > 3.6 version to set this project up
 > 
 >>Clone The GitHub Repo In Your Local Machine
