@@ -30,7 +30,7 @@ class ReportStatus(object):
 class RestaurantStatusData(models.Model):
     store_id = models.BigIntegerField(null=False, db_index=True)
     status = models.CharField(null=False, choices=RestaurantStatus.CHOICES, max_length=64)
-    timestamp = models.DateTimeField(null=False)
+    timestamp_utc = models.DateTimeField(null=False)
 
     @staticmethod
     def get_store_status_with_reference(store_id: int, reference_timestamp: Optional[datetime]) -> Union[
@@ -45,14 +45,14 @@ class RestaurantStatusData(models.Model):
 
 class RestaurantOperationTimeSlots(models.Model):
     store_id = models.BigIntegerField(null=False, db_index=True)
-    day_of_week = models.IntegerField(default=0, null=False)
-    start_time = models.TimeField(null=False)
-    end_time = models.TimeField(null=False)
+    day = models.IntegerField(default=0, null=False)
+    start_time_local = models.TimeField(null=False)
+    end_time_local = models.TimeField(null=False)
 
 
 class RestaurantTimezoneInfo(models.Model):
     store_id = models.BigIntegerField(null=False, db_index=True)
-    timezone = models.CharField(null=False, max_length=64)
+    timezone_str = models.CharField(null=False, max_length=64)
 
 
 class ConsolidatedReport(models.Model):
