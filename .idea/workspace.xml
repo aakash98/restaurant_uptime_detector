@@ -4,13 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18b5fde5-f0b4-4af3-b4b5-df039fcee328" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="18b5fde5-f0b4-4af3-b4b5-df039fcee328" name="Default Changelist" comment="Revamping Data Loading Flow">
+      <change afterPath="$PROJECT_DIR$/restaurant_reports/pytest.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restaurant_reports/settings/test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restaurant_reports/test_data.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restaurant_reports/test_runner.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restaurant_reports/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restaurant_reports/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/loop_assignment.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/loop_assignment.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restaurant_reports/services/trigger_report.py" beforeDir="false" afterPath="$PROJECT_DIR$/restaurant_reports/services/trigger_report.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restaurant_reports/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/restaurant_reports/constants.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restaurant_reports/management/commands/import_csv_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/restaurant_reports/management/commands/import_csv_data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/restaurant_reports/settings/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/restaurant_reports/settings/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restaurant_reports/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/restaurant_reports/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,23 +41,39 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2NxtSfKXys44MDyfE1GHZ9lMEXE" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "feature/queue__data__loader",
+    "last_opened_file_path": "/Users/aakashmahadevan/code/restaurant_uptime_detector",
+    "settings.editor.selected.configurable": "editing.templates"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/restaurant_reports/settings" />
       <recent name="$PROJECT_DIR$" />
     </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-5a2391486177-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.13763.11" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -62,6 +84,15 @@
       <option name="presentableId" value="Default" />
       <updated>1680617562197</updated>
     </task>
+    <task id="LOCAL-00001" summary="Revamping Data Loading Flow">
+      <option name="closed" value="true" />
+      <created>1708383794826</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1708383794826</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -74,6 +105,9 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Revamping Data Loading Flow" />
+    <option name="LAST_COMMIT_MESSAGE" value="Revamping Data Loading Flow" />
   </component>
 </project>
