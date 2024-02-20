@@ -38,7 +38,7 @@ class RestaurantStatusData(models.Model):
         if not reference_timestamp:
             reference_timestamp = datetime.now()
         restaurant_status_records = RestaurantStatusData.objects.filter(store_id=store_id,
-                                                                        timestamp__gte=reference_timestamp - timedelta(
+                                                                        timestamp_utc__gte=reference_timestamp - timedelta(
                                                                             days=Constants.STATUS_DATE_DELTA))
         return restaurant_status_records
 

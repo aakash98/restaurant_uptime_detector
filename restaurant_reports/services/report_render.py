@@ -30,8 +30,8 @@ class ReportRenderService(object):
                 interval_start, interval_end = time_interval
                 interval_start_utc, interval_end_utc = interval_start.astimezone(tz=pytz.UTC), interval_end.astimezone(
                     tz=pytz.UTC)
-                status_checks_in_interval = restaurant_status_checks.filter(timestamp__gt=interval_start_utc,
-                                                                            timestamp__lt=interval_end_utc)
+                status_checks_in_interval = restaurant_status_checks.filter(timestamp_utc__gt=interval_start_utc,
+                                                                            timestamp_utc__lt=interval_end_utc)
                 mini_interval_start = interval_start_utc
                 for status_check in status_checks_in_interval:
                     period_in_mini_interval = (
@@ -159,9 +159,9 @@ class ReportRenderService(object):
 
         # There Will Be Cases Where Our Requested Relative Period lies between 2 dates
         restaurant_operational_hours_start = RestaurantOperationTimeSlots.objects.filter(store_id=self.store_id,
-                                                                                         day_of_week=day_of_week_start).last()
+                                                                                         day=day_of_week_start).last()
         restaurant_operational_hours_end = RestaurantOperationTimeSlots.objects.filter(store_id=self.store_id,
-                                                                                       day_of_week=day_of_week_end).last()
+                                                                                       day=day_of_week_end).last()
 
         # Abort Further Operations If Restaurant Does Not Operate On A Particular Weekday
 
@@ -227,11 +227,11 @@ class ReportRenderService(object):
         available_hours = []
         while ref_day_of_week < 7:
             operation_time_slot = RestaurantOperationTimeSlots.objects.filter(store_id=self.store_id,
-                                                                              day_of_week=(
+                                                                              day=(
                                                                                                   day_of_week_start + ref_day_of_week) % 7).last()
             operational_window_start_time = datetime.combine(
                 (query_time_window_start + timedelta(days=ref_day_of_week)).date(),
-                operation_time_slot.start_time).replace(tzinfo=pytz.UTC) if operation_time_slot else None
+                operation_time_slot.start_time_local).replace(tzinfo=pytz.UTC) if operation_time_slot else None
             operational_window_end_time = datetime.combine(query_time_window_end.date(),
                                                            operation_time_slot.end_time_local).replace(
                 tzinfo=pytz.UTC) if operation_time_slot else None

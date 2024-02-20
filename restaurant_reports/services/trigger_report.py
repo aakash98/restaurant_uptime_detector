@@ -14,7 +14,7 @@ class TriggerReportService(object):
         if use_latest:
             reference_timestamp = datetime.now()
         else:
-            reference_timestamp = RestaurantStatusData.objects.filter().last().timestamp
+            reference_timestamp = RestaurantStatusData.objects.filter().last().timestamp_utc
         # ConsolidatedReport Collects All Individual Store Reports And Compiles It
         consolidated_report = ConsolidatedReport.objects.create(reference_timestamp=reference_timestamp)
         # Implemented Async Queue Using Celery For Fast Processing
