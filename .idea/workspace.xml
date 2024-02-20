@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18b5fde5-f0b4-4af3-b4b5-df039fcee328" name="Default Changelist" comment="Reformatting changes">
-      <change beforePath="$PROJECT_DIR$/restaurant_reports/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/restaurant_reports/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restaurant_reports/services/report_render.py" beforeDir="false" afterPath="$PROJECT_DIR$/restaurant_reports/services/report_render.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restaurant_reports/services/store_status_aggregator.py" beforeDir="false" afterPath="$PROJECT_DIR$/restaurant_reports/services/store_status_aggregator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restaurant_reports/services/trigger_report.py" beforeDir="false" afterPath="$PROJECT_DIR$/restaurant_reports/services/trigger_report.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restaurant_reports/test_data.json" beforeDir="false" afterPath="$PROJECT_DIR$/restaurant_reports/test_data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restaurant_reports/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/restaurant_reports/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restaurant_reports/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/restaurant_reports/views.py" afterDir="false" />
+    <list default="true" id="18b5fde5-f0b4-4af3-b4b5-df039fcee328" name="Default Changelist" comment="Pytest Integrations, Fixed Failing Test Cases">
+      <change afterPath="$PROJECT_DIR$/.coverage" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restaurant_reports/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/restaurant_reports/constants.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +47,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "development",
+    "git-widget-placeholder": "feature/test__case__fixes",
     "last_opened_file_path": "/Users/aakashmahadevan/code/restaurant_uptime_detector",
     "settings.editor.selected.configurable": "editing.templates"
   }
@@ -119,7 +114,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708388443859</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Pytest Integrations, Fixed Failing Test Cases">
+      <option name="closed" value="true" />
+      <created>1708460541931</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1708460541932</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -138,6 +141,7 @@
     <MESSAGE value="PyTest Boilerplate And Making Data Injection Streamable" />
     <MESSAGE value="Main" />
     <MESSAGE value="Reformatting changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Reformatting changes" />
+    <MESSAGE value="Pytest Integrations, Fixed Failing Test Cases" />
+    <option name="LAST_COMMIT_MESSAGE" value="Pytest Integrations, Fixed Failing Test Cases" />
   </component>
 </project>

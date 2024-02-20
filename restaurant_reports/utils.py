@@ -36,4 +36,4 @@ class CSVMapUtils:
         for index in data_frame.index:
             data_fields = {field_name: data_frame.iloc[index][field_name] for field_name in fields}
             data_fields = json.loads(json.dumps(data_fields, cls=NpEncoder))
-            ModelInjectionUtils.make_an_entry_sync(model_name=model_name, **data_fields)
+            ModelInjectionUtils.make_an_entry_async(model_name=model_name, **data_fields)
