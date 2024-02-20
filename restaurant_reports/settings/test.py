@@ -1,1 +1,1 @@
-# TEST_RUNNER = 'restaurant_reports.settings.test_runner.CustomTestRunner'
+TEST_RUNNER = 'restaurant_reports.settings.test_runner.CustomTestRunner'
