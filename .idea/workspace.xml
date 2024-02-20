@@ -4,19 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18b5fde5-f0b4-4af3-b4b5-df039fcee328" name="Default Changelist" comment="Revamping Data Loading Flow">
-      <change afterPath="$PROJECT_DIR$/restaurant_reports/pytest.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/restaurant_reports/settings/test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/restaurant_reports/test_data.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/restaurant_reports/test_runner.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/restaurant_reports/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/restaurant_reports/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/loop_assignment.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/loop_assignment.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restaurant_reports/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/restaurant_reports/constants.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restaurant_reports/management/commands/import_csv_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/restaurant_reports/management/commands/import_csv_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restaurant_reports/settings/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/restaurant_reports/settings/__init__.py" afterDir="false" />
+    <list default="true" id="18b5fde5-f0b4-4af3-b4b5-df039fcee328" name="Default Changelist" comment="Reformatting changes">
+      <change beforePath="$PROJECT_DIR$/restaurant_reports/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/restaurant_reports/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restaurant_reports/services/report_render.py" beforeDir="false" afterPath="$PROJECT_DIR$/restaurant_reports/services/report_render.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restaurant_reports/services/store_status_aggregator.py" beforeDir="false" afterPath="$PROJECT_DIR$/restaurant_reports/services/store_status_aggregator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restaurant_reports/services/trigger_report.py" beforeDir="false" afterPath="$PROJECT_DIR$/restaurant_reports/services/trigger_report.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restaurant_reports/test_data.json" beforeDir="false" afterPath="$PROJECT_DIR$/restaurant_reports/test_data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restaurant_reports/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/restaurant_reports/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restaurant_reports/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/restaurant_reports/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +52,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "feature/queue__data__loader",
+    "git-widget-placeholder": "development",
     "last_opened_file_path": "/Users/aakashmahadevan/code/restaurant_uptime_detector",
     "settings.editor.selected.configurable": "editing.templates"
   }
@@ -92,7 +87,39 @@
       <option name="project" value="LOCAL" />
       <updated>1708383794826</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="PyTest Boilerplate And Making Data Injection Streamable">
+      <option name="closed" value="true" />
+      <created>1708387276024</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1708387276024</updated>
+    </task>
+    <task id="LOCAL-00003" summary="PyTest Boilerplate And Making Data Injection Streamable">
+      <option name="closed" value="true" />
+      <created>1708387444771</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1708387444771</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Main">
+      <option name="closed" value="true" />
+      <created>1708387615312</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1708387615312</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Reformatting changes">
+      <option name="closed" value="true" />
+      <created>1708388443859</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1708388443859</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -108,6 +135,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Revamping Data Loading Flow" />
-    <option name="LAST_COMMIT_MESSAGE" value="Revamping Data Loading Flow" />
+    <MESSAGE value="PyTest Boilerplate And Making Data Injection Streamable" />
+    <MESSAGE value="Main" />
+    <MESSAGE value="Reformatting changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reformatting changes" />
   </component>
 </project>
