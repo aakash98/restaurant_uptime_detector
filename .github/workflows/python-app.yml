@@ -39,6 +39,8 @@ jobs:
         python-version: "3.10"
     - name: Install dependencies
       run: |
+        sudo apt-get update
+        sudo apt-get install -y libmysqlclient-dev
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Run tests
@@ -47,5 +49,6 @@ jobs:
 
       env:
         RESTAURANT_REPORTS_DB_NAME: test_database
-        RESTAURANT_REPORTS_DB_USERNAME: root
+        RESTAURANT_REPORTS_DB_USERNAME: restaurant_report_user
         RESTAURANT_REPORTS_DB_PASSWORD: aakash1998
+        
