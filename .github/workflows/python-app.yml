@@ -13,9 +13,23 @@ permissions:
   contents: read
 
 jobs:
+
   build:
 
     runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:5.7
+        env:
+          MYSQL_ROOT_PASSWORD: aakash1998
+          MYSQL_DATABASE: test_database
+          MYSQL_USER: root
+          MYSQL_PASSWORD: aakash1998
+        ports:
+          - 3306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+
 
     steps:
     - uses: actions/checkout@v3
@@ -30,3 +44,8 @@ jobs:
     - name: Run tests
       run: |
         python manage.py test
+
+      env:
+        RESTAURANT_REPORTS_DB_NAME: test_database
+        RESTAURANT_REPORTS_DB_USERNAME: root
+        RESTAURANT_REPORTS_DB_PASSWORD: aakash1998
