@@ -3,6 +3,7 @@ from restaurant_reports.services.trigger_report import TriggerReportService
 from django.http import HttpResponse
 import json
 
+
 class ReportRenderAPI(APIView):
 
     def post(self, *args, **kwargs):

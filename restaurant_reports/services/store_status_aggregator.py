@@ -26,7 +26,7 @@ class StoreStatusAggregatorService(object):
             restaurant_report = ReportRenderService(store).get_report_by_store(self.report_id, reference_timestamp)
             if restaurant_report:
                 consolidated_data.append(restaurant_report)
-            print(f"Consolidating Data For {store}....Current Progress {counter*100/number_of_stores}%")
+            print(f"Consolidating Data For {store}....Current Progress {counter * 100 / number_of_stores}%")
         report.status = ReportStatus.COMPLETED
         report.save()
 

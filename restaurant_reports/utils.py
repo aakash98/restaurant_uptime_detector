@@ -15,6 +15,7 @@ class NpEncoder(json.JSONEncoder):
             return obj.tolist()
         return super(NpEncoder, self).default(obj)
 
+
 class ModelInjectionUtils:
     @classmethod
     def make_an_entry_sync(cls, model_name, **data_fields):

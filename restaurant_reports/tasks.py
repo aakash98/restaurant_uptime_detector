@@ -2,8 +2,7 @@ from celery import shared_task
 from restaurant_reports.services.store_status_aggregator import StoreStatusAggregatorService
 from datetime import datetime
 import pytz
-from restaurant_reports.models import RestaurantStatusData, \
-    RestaurantOperationTimeSlots, RestaurantTimezoneInfo
+from restaurant_reports.models import model_factory
 
 
 @shared_task
@@ -11,9 +10,6 @@ def render_restaurant_reports(report_id: int):
     StoreStatusAggregatorService(report_id).generate_consolidated_report()
 
 
-model_factory = {'RestaurantStatusData': RestaurantStatusData,
-                 'RestaurantOperationTimeSlots': RestaurantOperationTimeSlots,
-                 'RestaurantTimezoneInfo': RestaurantTimezoneInfo}
 
 
 @shared_task
@@ -37,7 +33,7 @@ def make_an_entry(model_name='RestaurantStatusData', **kwargs):
         start_time_local = kwargs['start_time_local']
         end_time_local = kwargs['end_time_local']
         store_id = kwargs['store_id']
-        timezone_data = RestaurantTimezoneInfo.objects.filter(store_id=store_id).last()
+        timezone_data = model_factory['RestaurantTimezoneInfo'].objects.filter(store_id=store_id).last()
         timezone = timezone_data.timezone_str if timezone_data else 'America/Chicago'
         start_time_local = datetime.strptime(start_time_local,
                                              '%H:%M:%S').time().replace(tzinfo=pytz.timezone(timezone))

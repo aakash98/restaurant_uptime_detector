@@ -1,6 +1,6 @@
 from restaurant_reports.models import RestaurantStatusData, RestaurantReports, ReportStatus, \
     RestaurantOperationTimeSlots, RestaurantTimezoneInfo
-from typing import Optional, Union, Dict
+from typing import Optional, Dict
 from datetime import datetime, timedelta
 from django.core.serializers.json import DjangoJSONEncoder
 import pytz
@@ -255,8 +255,7 @@ class ReportRenderService(object):
             self.compute_restaurant_status_in_intervals(time_intervals, available_hours, restaurant_status_checks,
                                                         mode='hour', computation='week')
 
-    def get_report_by_store(self, consolidated_report_id: int, reference_timestamp: Optional[datetime]) -> Optional[
-        Dict]:
+    def get_report_by_store(self, consolidated_report_id: int, reference_timestamp: Optional[datetime]) -> Optional[Dict]:
         if not reference_timestamp or not isinstance(reference_timestamp, datetime):
             latest_status_record = RestaurantStatusData.objects.filter(store_id=self.store_id).last()
             reference_timestamp = latest_status_record.timestamp_utc

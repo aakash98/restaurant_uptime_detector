@@ -3,6 +3,7 @@ from restaurant_reports.utils import ModelInjectionUtils
 import json
 from django.core.serializers.json import DjangoJSONEncoder
 
+
 class MyTestCase(TestCase):
     def setUp(self):
         # Create a user
@@ -18,7 +19,8 @@ class MyTestCase(TestCase):
 
     def test_something(self):
         # Test something with the nominal data
-        import ipdb; ipdb.set_trace()
+        import ipdb;
+        ipdb.set_trace()
         ...
 
     def test_another_thing(self):

@@ -72,3 +72,8 @@ class RestaurantReports(models.Model):
     reference_timestamp = models.DateTimeField(null=False)
     data = models.JSONField(null=True, blank=True)
     consolidated_report = models.ForeignKey(ConsolidatedReport, null=False, blank=False, on_delete=models.CASCADE, )
+
+
+model_factory = {'RestaurantStatusData': RestaurantStatusData,
+                 'RestaurantOperationTimeSlots': RestaurantOperationTimeSlots,
+                 'RestaurantTimezoneInfo': RestaurantTimezoneInfo}
