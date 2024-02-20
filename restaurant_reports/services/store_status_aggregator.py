@@ -17,7 +17,7 @@ class StoreStatusAggregatorService(object):
         reference_timestamp = report.reference_timestamp
         # Get List Of Unique Stores Within Our Interested Time Slot
         stores = set(list(RestaurantStatusData.objects.filter(
-            timestamp__gte=reference_timestamp - timedelta(days=Constants.STATUS_DATE_DELTA)).values_list('store_id',
+            timestamp_utc__gte=reference_timestamp - timedelta(days=Constants.STATUS_DATE_DELTA)).values_list('store_id',
                                                                                                           flat=True)))
         number_of_stores = len(stores)
         counter = 0
@@ -26,7 +26,7 @@ class StoreStatusAggregatorService(object):
             restaurant_report = ReportRenderService(store).get_report_by_store(self.report_id, reference_timestamp)
             if restaurant_report:
                 consolidated_data.append(restaurant_report)
-            print(f"Consolidating Data For {store}....Current Progress {counter*100/number_of_stores}%")
+            print(f"Consolidating Data For {store}....Current Progress {counter * 100 / number_of_stores}%")
         report.status = ReportStatus.COMPLETED
         report.save()
 

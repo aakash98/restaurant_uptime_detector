@@ -1,6 +1,6 @@
 from restaurant_reports.models import RestaurantStatusData, RestaurantReports, ReportStatus, \
     RestaurantOperationTimeSlots, RestaurantTimezoneInfo
-from typing import Optional, Union, Dict
+from typing import Optional, Dict
 from datetime import datetime, timedelta
 from django.core.serializers.json import DjangoJSONEncoder
 import pytz
@@ -30,14 +30,14 @@ class ReportRenderService(object):
                 interval_start, interval_end = time_interval
                 interval_start_utc, interval_end_utc = interval_start.astimezone(tz=pytz.UTC), interval_end.astimezone(
                     tz=pytz.UTC)
-                status_checks_in_interval = restaurant_status_checks.filter(timestamp__gt=interval_start_utc,
-                                                                            timestamp__lt=interval_end_utc)
+                status_checks_in_interval = restaurant_status_checks.filter(timestamp_utc__gt=interval_start_utc,
+                                                                            timestamp_utc__lt=interval_end_utc)
                 mini_interval_start = interval_start_utc
                 for status_check in status_checks_in_interval:
                     period_in_mini_interval = (
-                                                      status_check.timestamp - mini_interval_start).total_seconds() / seconds_unit_conversion_denominator
+                                                      status_check.timestamp_utc - mini_interval_start).total_seconds() / seconds_unit_conversion_denominator
                     available_period_in_interval -= period_in_mini_interval
-                    mini_interval_start = status_check.timestamp
+                    mini_interval_start = status_check.timestamp_utc
                     if status_check.status == 'active':
                         if mode == 'minute':
                             self.uptime_last_hour += period_in_mini_interval
@@ -54,7 +54,7 @@ class ReportRenderService(object):
                             self.downtime_last_week += period_in_mini_interval
                 if status_checks_in_interval.last():
                     period_in_mini_interval = ((
-                                                       interval_end_utc - status_checks_in_interval.last().timestamp).total_seconds()) / seconds_unit_conversion_denominator
+                                                       interval_end_utc - status_checks_in_interval.last().timestamp_utc).total_seconds()) / seconds_unit_conversion_denominator
                     if status_checks_in_interval.last().status == 'active':
                         if mode == 'minute':
                             self.uptime_last_hour += period_in_mini_interval
@@ -75,7 +75,7 @@ class ReportRenderService(object):
         if not restaurant_timezone:
             restaurant_timezone = 'America/Chicago'
         else:
-            restaurant_timezone = restaurant_timezone.timezone
+            restaurant_timezone = restaurant_timezone.timezone_str
 
         # Convert TimeSlots Into Local TimzeZone
         query_time_window_end = reference_timestamp.astimezone(pytz.timezone(restaurant_timezone))
@@ -85,22 +85,22 @@ class ReportRenderService(object):
 
         # There Will Be Cases Where Our Requested Relative Period lies between 2 dates
         restaurant_operational_hours_start = RestaurantOperationTimeSlots.objects.filter(store_id=self.store_id,
-                                                                                         day_of_week=day_of_week_start).last()
+                                                                                         day=day_of_week_start).last()
         restaurant_operational_hours_end = RestaurantOperationTimeSlots.objects.filter(store_id=self.store_id,
-                                                                                       day_of_week=day_of_week_end).last()
+                                                                                       day=day_of_week_end).last()
         if restaurant_operational_hours_start or restaurant_operational_hours_end:
             # Case When Requested Time Period Falls In The Same Day
             operational_hours_start_phase_1 = datetime.combine(query_time_window_start.date(),
-                                                               restaurant_operational_hours_start.start_time).replace(
+                                                               restaurant_operational_hours_start.start_time_local).replace(
                 tzinfo=pytz.UTC) if restaurant_operational_hours_start else None
             operational_hours_end_phase_1 = datetime.combine(query_time_window_start.date(),
-                                                             restaurant_operational_hours_start.end_time).replace(
+                                                             restaurant_operational_hours_start.end_time_local).replace(
                 tzinfo=pytz.UTC) if restaurant_operational_hours_start else None
             operational_hours_start_phase_2 = datetime.combine(query_time_window_end.date(),
-                                                               restaurant_operational_hours_end.start_time).replace(
+                                                               restaurant_operational_hours_end.start_time_local).replace(
                 tzinfo=pytz.UTC) if restaurant_operational_hours_end else None
             operational_hours_end_phase_2 = datetime.combine(query_time_window_end.date(),
-                                                             restaurant_operational_hours_end.end_time).replace(
+                                                             restaurant_operational_hours_end.end_time_local).replace(
                 tzinfo=pytz.UTC) if restaurant_operational_hours_end else None
 
             # Abort Further Operations If Restaurant Does Not Operate On A Particular Weekday
@@ -149,7 +149,7 @@ class ReportRenderService(object):
         if not restaurant_timezone:
             restaurant_timezone = 'America/Chicago'
         else:
-            restaurant_timezone = restaurant_timezone.timezone
+            restaurant_timezone = restaurant_timezone.timezone_str
 
         # Convert TimeSlots Into Local TimzeZone
         query_time_window_end = reference_timestamp.astimezone(pytz.timezone(restaurant_timezone))
@@ -159,24 +159,24 @@ class ReportRenderService(object):
 
         # There Will Be Cases Where Our Requested Relative Period lies between 2 dates
         restaurant_operational_hours_start = RestaurantOperationTimeSlots.objects.filter(store_id=self.store_id,
-                                                                                         day_of_week=day_of_week_start).last()
+                                                                                         day=day_of_week_start).last()
         restaurant_operational_hours_end = RestaurantOperationTimeSlots.objects.filter(store_id=self.store_id,
-                                                                                       day_of_week=day_of_week_end).last()
+                                                                                       day=day_of_week_end).last()
 
         # Abort Further Operations If Restaurant Does Not Operate On A Particular Weekday
 
         operational_hours_start_phase_1 = datetime.combine(query_time_window_start.date(),
-                                                           restaurant_operational_hours_start.start_time).replace(
+                                                           restaurant_operational_hours_start.start_time_local).replace(
             tzinfo=pytz.UTC) if restaurant_operational_hours_start else None
 
         operational_hours_end_phase_1 = datetime.combine(query_time_window_start.date(),
-                                                         restaurant_operational_hours_start.end_time).replace(
+                                                         restaurant_operational_hours_start.end_time_local).replace(
             tzinfo=pytz.UTC) if restaurant_operational_hours_start else None
         operational_hours_start_phase_2 = datetime.combine(query_time_window_end.date(),
-                                                           restaurant_operational_hours_end.start_time).replace(
+                                                           restaurant_operational_hours_end.start_time_local).replace(
             tzinfo=pytz.UTC) if restaurant_operational_hours_end else None
         operational_hours_end_phase_2 = datetime.combine(query_time_window_end.date(),
-                                                         restaurant_operational_hours_end.end_time).replace(
+                                                         restaurant_operational_hours_end.end_time_local).replace(
             tzinfo=pytz.UTC) if restaurant_operational_hours_end else None
 
         if operational_hours_start_phase_1:
@@ -216,7 +216,7 @@ class ReportRenderService(object):
         if not restaurant_timezone:
             restaurant_timezone = 'America/Chicago'
         else:
-            restaurant_timezone = restaurant_timezone.timezone
+            restaurant_timezone = restaurant_timezone.timezone_str
 
         # Convert TimeSlots Into Local TimzeZone
         query_time_window_end = reference_timestamp.astimezone(pytz.timezone(restaurant_timezone))
@@ -227,13 +227,13 @@ class ReportRenderService(object):
         available_hours = []
         while ref_day_of_week < 7:
             operation_time_slot = RestaurantOperationTimeSlots.objects.filter(store_id=self.store_id,
-                                                                              day_of_week=(
+                                                                              day=(
                                                                                                   day_of_week_start + ref_day_of_week) % 7).last()
             operational_window_start_time = datetime.combine(
                 (query_time_window_start + timedelta(days=ref_day_of_week)).date(),
-                operation_time_slot.start_time).replace(tzinfo=pytz.UTC) if operation_time_slot else None
+                operation_time_slot.start_time_local).replace(tzinfo=pytz.UTC) if operation_time_slot else None
             operational_window_end_time = datetime.combine(query_time_window_end.date(),
-                                                           operation_time_slot.end_time).replace(
+                                                           operation_time_slot.end_time_local).replace(
                 tzinfo=pytz.UTC) if operation_time_slot else None
 
             # Abort Further Operations If Restaurant Does Not Operate On A Particular Weekday
@@ -255,11 +255,10 @@ class ReportRenderService(object):
             self.compute_restaurant_status_in_intervals(time_intervals, available_hours, restaurant_status_checks,
                                                         mode='hour', computation='week')
 
-    def get_report_by_store(self, consolidated_report_id: int, reference_timestamp: Optional[datetime]) -> Optional[
-        Dict]:
+    def get_report_by_store(self, consolidated_report_id: int, reference_timestamp: Optional[datetime]) -> Optional[Dict]:
         if not reference_timestamp or not isinstance(reference_timestamp, datetime):
             latest_status_record = RestaurantStatusData.objects.filter(store_id=self.store_id).last()
-            reference_timestamp = latest_status_record.timestamp
+            reference_timestamp = latest_status_record.timestamp_utc
         restaurant_status_checks = RestaurantStatusData.get_store_status_with_reference(self.store_id,
                                                                                         reference_timestamp)
         # print(f"Computing Hourly Stats For {self.store_id}.....")
