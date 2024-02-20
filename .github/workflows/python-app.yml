@@ -24,7 +24,7 @@ jobs:
         env:
           MYSQL_ROOT_PASSWORD: aakash1998
           MYSQL_DATABASE: test_database
-          MYSQL_USER: root
+          MYSQL_USER: restaurant_report_user
           MYSQL_PASSWORD: aakash1998
         ports:
           - 3306:3306
