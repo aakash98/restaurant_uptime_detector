@@ -25,8 +25,13 @@ def make_an_entry(model_name='RestaurantStatusData', **kwargs):
                               "%Y-%m-%d %H:%M:%S.%f UTC").replace(tzinfo=pytz.UTC)
         except Exception as ex:
             print(ex)
-            timestamp_utc = datetime.strptime(kwargs['timestamp_utc'],
-                                          "%Y-%m-%d %H:%M:%S UTC").replace(tzinfo=pytz.UTC)
+            try:
+                timestamp_utc = datetime.strptime(kwargs['timestamp_utc'],
+                                              "%Y-%m-%d %H:%M:%S UTC").replace(tzinfo=pytz.UTC)
+            except Exception as ex:
+                print(ex)
+                timestamp_utc = datetime.strptime(kwargs['timestamp_utc'],
+                                                   "%Y-%m-%dT%H:%M:%S.%fZ").replace(tzinfo=pytz.UTC)
         kwargs['timestamp_utc'] = timestamp_utc
     elif model_name == 'RestaurantOperationTimeSlots':
         start_time_local = kwargs['start_time_local']

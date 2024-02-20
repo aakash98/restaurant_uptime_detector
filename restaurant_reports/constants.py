@@ -17,3 +17,11 @@ class Constants:
                                                  '~/Documents/store status.csv')
     RESTAURANT_STATUS_DATA_FIELDS = os.environ.get('RESTAURANT_STATUS_DATA_FIELDS',
                                                    ['store_id', 'status', 'timestamp_utc'])
+
+
+data_map = {'RestaurantOperationTimeSlots': {'file_location': Constants.RESTAURANT_OP_TIMESLOT_FILE,
+                                             'fields': Constants.RESTAURANT_OP_TIMESLOT_FIELDS},
+            'RestaurantTimezoneInfo': {'file_location': Constants.RESTAURANT_TIMEZONE_INFO_FILE,
+                                       'fields': Constants.RESTAURANT_TIMEZONE_INFO_FIELDS},
+            'RestaurantStatusData': {'file_location': Constants.RESTAURANT_STATUS_DATA_FILE,
+                                     'fields': Constants.RESTAURANT_STATUS_DATA_FIELDS}}
