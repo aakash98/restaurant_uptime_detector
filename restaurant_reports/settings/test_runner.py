@@ -8,9 +8,10 @@ class CustomTestRunner(DiscoverRunner):
         super().setup_test_environment(*args, **kwargs)
         settings.DATABASES['default']['NAME'] = 'test_database'  # Replace 'test_database' with the name of your MySQL test database
 
-    # def teardown_test_environment(self, *args, **kwargs):
-    #     super().teardown_test_environment(*args, **kwargs)
-    #     connection.close()
+    def teardown_test_environment(self, *args, **kwargs):
+        super().teardown_test_environment(*args, **kwargs)
+        connection.close()
 
 if __name__ == "__main__":
-    sys.exit(CustomTestRunner().run_tests(sys.argv[1:]))
+    pass
+    # sys.exit(CustomTestRunner().run_tests(sys.argv[1:]))
