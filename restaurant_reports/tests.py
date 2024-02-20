@@ -10,6 +10,17 @@ from restaurant_reports.services.trigger_report import TriggerReportService
 
 
 class MyTestCase(TestCase):
+
+    @classmethod
+    def setUpClass(cls):
+        # Override the setUpClass method to prevent database creation
+        pass
+
+    @classmethod
+    def tearDownClass(cls):
+        # Override the tearDownClass method to prevent database deletion
+        pass
+
     def setUp(self):
         # Create a user
         with open('restaurant_reports/test_data.json') as fp:
